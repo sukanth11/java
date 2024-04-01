@@ -1,0 +1,43 @@
+package com.voya.testcases;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class Calculatorforproduct {
+	CalculatorProductTest calculator=null;
+
+	@BeforeAll
+	static void setUpBeforeClass() throws Exception {
+		System.out.println("called before all testcases");
+	}
+
+	@AfterAll
+	static void tearDownAfterClass() throws Exception {
+		System.out.println("called after all testcases");
+	}
+
+	@BeforeEach
+	void setUp() throws Exception {
+		calculator=new CalculatorProductTest();
+		System.out.println("called before each testcases");
+	}
+
+	@AfterEach
+	void tearDown() throws Exception {
+		calculator=null;
+		System.out.println("called after each testcases");
+	}
+
+	@Test
+	void testProduct() {
+		int actualforsum=calculator.product(10,5);
+		Assertions.assertEquals(30, actualforsum, "should be 30");
+	}
+
+}
